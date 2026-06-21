@@ -4,7 +4,9 @@ import mod1 from './models/mod1.js'
 import crypto from 'crypto';
 import axios from 'axios';
 const app = express();
-app.use(express.json());
+app.use(express.json({
+    limit:'100mb'
+}));
 app.listen(3000 ,()=>{
     console.log("fuck u");
 })
@@ -57,10 +59,10 @@ app.post("/mid",async(req,res)=>{
 
         // res.status(200).json(results)
         console.log(req.body['name'])
-        const results = await mod1.create({ 'name':req.body['name'],'file':req.body['file'],'code':code.toString
-            ()
+        const results = await mod1.create({ 'name':req.body['name'],'file':req.body['file'],'code':code.toString(),'type':req.body['type']
+            
          })
-         
+
         res.status(200).json(results)
         crypto.generateKey
     }

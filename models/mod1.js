@@ -1,5 +1,6 @@
 import { Timestamp } from "mongodb";
 import mongoose from "mongoose";
+import { type } from "os";
 
 
 const sch = new mongoose.Schema({
@@ -14,6 +15,10 @@ const sch = new mongoose.Schema({
     },
     code : {
         type : String,
+        required: true
+    },
+    type :{
+         type : String,
         required: true
     }
 
